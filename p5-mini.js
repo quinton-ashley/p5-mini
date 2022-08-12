@@ -50,7 +50,7 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 			let code = script.innerHTML.trim();
 
 			let attrs = script.getAttributeNames();
-			let baseIdx = attrs.findIndex((v) => v.startsWith('base'));
+			let baseIdx = attrs.findIndex((v) => v.startsWith('base-'));
 			if (baseIdx != -1) {
 				p5m.bases.push(code.slice(0, code.lastIndexOf('}')));
 			}

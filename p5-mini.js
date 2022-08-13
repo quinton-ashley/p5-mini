@@ -43,7 +43,7 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 	}
 
 	p5m.minis = [];
-	p5m.bases = [];
+	p5m.bases = {};
 
 	class MiniEditor {
 		constructor(script, id) {
@@ -52,7 +52,8 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 			let attrs = script.getAttributeNames();
 			let baseIdx = attrs.findIndex((v) => v.startsWith('base-'));
 			if (baseIdx != -1) {
-				p5m.bases.push(code.slice(0, code.lastIndexOf('}')));
+				let baseKey = attrs[baseIdx].split('-')[1];
+				p5m.bases[baseKey] = code.slice(0, code.lastIndexOf('}'));
 			}
 			let props = {};
 			for (let prop of attrs) {

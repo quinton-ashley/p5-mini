@@ -6,6 +6,10 @@
 	font-family: sans-serif;
 }
 
+.p5-mini * {
+	outline: none;
+}
+
 .p5m-main {
 	display: flex;
 	align-items: center;

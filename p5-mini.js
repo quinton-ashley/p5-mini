@@ -61,7 +61,7 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 			}
 
 			let lines = props.lines || 0;
-			if (!lines) {
+			if (!lines && !props['no-editor']) {
 				for (let c of code) {
 					if (c == '\n') lines++;
 				}
@@ -89,11 +89,13 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 			title.append(span);
 			div.append(title);
 
-			let editBtn = document.createElement('button');
-			editBtn.className = 'p5m-edit';
-			editBtn.innerHTML = '{ }';
-			editBtn.onclick = () => this.editor.focus();
-			title.append(editBtn);
+			if (!props['no-editor']) {
+				let editBtn = document.createElement('button');
+				editBtn.className = 'p5m-edit';
+				editBtn.innerHTML = '{ }';
+				editBtn.onclick = () => this.editor.focus();
+				title.append(editBtn);
+			}
 
 			let playBtn = document.createElement('button');
 			playBtn.className = 'p5m-play';

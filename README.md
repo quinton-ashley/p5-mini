@@ -39,6 +39,7 @@ Other property options include:
 `lines="#"` - sets the height of the editor to the specified number of lines
 `base-#` - specifies the sketch as a base sketch
 `base="#"` - will load the code from the script into the draw function of the specified base sketch
+`editor-btn` - add the show/hide editor button
 `no-editor` - hides the editor
 
 ## Example Use

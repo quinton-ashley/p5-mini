@@ -47,6 +47,7 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 
 	class MiniEditor {
 		constructor(script, id) {
+			this.id = id;
 			let code = script.innerHTML.trim();
 
 			let attrs = script.getAttributeNames();
@@ -76,7 +77,8 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 			else div.className += ' vert';
 			div.id = 'p5m-' + id;
 			div.style = script.style.cssText;
-			script.replaceWith(div);
+			script.after(div);
+			this.elem = div;
 
 			let title = document.createElement('div');
 			title.className = 'p5m-title';
@@ -89,11 +91,22 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 			title.append(span);
 			div.append(title);
 
-			if (!props['no-editor']) {
+			if (!props['no-editor'] && props['editor-btn']) {
 				let editBtn = document.createElement('button');
 				editBtn.className = 'p5m-edit';
 				editBtn.innerHTML = '{ }';
-				editBtn.onclick = () => this.editor.focus();
+				editBtn.onclick = () => {
+					let ed = document.getElementById('p5m-editor-' + id);
+					let pr = document.getElementById('p5m-preview-' + id);
+					if (ed.style.display == 'none') {
+						ed.style.display = 'block';
+						pr.style.width = 'unset';
+						this.editor.focus();
+					} else {
+						pr.style.width = '100%';
+						ed.style.display = 'none';
+					}
+				};
 				title.append(editBtn);
 			}
 
@@ -107,13 +120,14 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 			div.append(main);
 
 			let preview = document.createElement('div');
+			preview.id = 'p5m-preview-' + id;
 			preview.className = 'p5m-preview';
 			main.append(preview);
 			this.preview = preview;
 
 			let ed = document.createElement('div');
-			ed.className = 'p5m-editor';
 			ed.id = 'p5m-editor-' + id;
+			ed.className = 'p5m-editor';
 			ed.innerHTML = code;
 			main.append(ed);
 
@@ -121,6 +135,7 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 			editor.setOptions({
 				minLines: 1,
 				maxLines: lines,
+				// fontSize: '14px',
 				showFoldWidgets: false,
 				showGutter: props.gutter || false,
 				tabSize: 2,
@@ -168,13 +183,28 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 		}
 
 		reset() {}
-	}
 
-	let els = [...document.getElementsByTagName('script')];
-	for (let el of els) {
-		let head = el.outerHTML.slice(0, 30);
-		if (head.includes('text/p5')) {
-			p5m.minis.push(new MiniEditor(el, p5m.minis.length));
+		remove() {
+			this.sketch.remove();
+			this.editor.destroy();
+			this.editor.container.remove();
+			this.elem.remove();
 		}
 	}
+
+	p5m.loadMinis = function (elem) {
+		elem = elem || document;
+		let els = [...elem.getElementsByTagName('script')];
+		for (let el of els) {
+			let head = el.outerHTML.slice(0, 30);
+			if (head.includes('text/p5')) {
+				p5m.minis.push(new MiniEditor(el, p5m.minis.length));
+			}
+		}
+	};
+
+	if (p5m.autoLoad !== false) p5m.autoLoad = true;
+	if (p5m.autoLoad) p5m.loadMinis();
+
+	p5m.ready();
 });

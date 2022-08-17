@@ -49,6 +49,7 @@
 
 .p5m-editor {
 	width: 100%;
+	font-size: 14px;
 }
 
 .p5-mini.vert .p5m-editor {
@@ -86,4 +87,24 @@
 
 .p5m-edit:hover {
 	color: #404040;
+}
+
+@media screen and (max-width: 1030px) {
+	.p5m-editor {
+		font-size: 32px;
+	}
+	.p5m-title {
+		font-size: 32px;
+		height: 32px;
+	}
+	.p5m-logo {
+		height: 32px;
+		padding-right: 4px;
+	}
+	.p5m-play {
+		border-width: 14px 0 14px 18px;
+	}
+	.p5m-edit {
+		font-size: 22px;
+	}
 }

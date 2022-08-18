@@ -206,5 +206,5 @@ ace.config.loadModule('ace/ext/language_tools', function () {
 	if (p5m.autoLoad !== false) p5m.autoLoad = true;
 	if (p5m.autoLoad) p5m.loadMinis();
 
-	p5m.ready();
+	if (p5m.ready) p5m.ready();
 });

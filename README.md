@@ -36,7 +36,7 @@ You can add properties to the script tag to adjust the p5-mini player to your li
 </script>
 ```
 
-Other property options include:
+Other property options include:  
 `horiz`/`vert` - whether the editor should be horizontal or vertical  
 `lines="#"` - sets the height of the editor to the specified number of lines  
 `base-#` - specifies the sketch as a base sketch  

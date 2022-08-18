@@ -16,7 +16,7 @@ Add p5-mini and the Ace online editor to your HTML:
 <script src="https://github.io/quinton-ashley/p5-mini/p5-mini.js"></script>
 ```
 
-Add p5.js scripts to your page and they will be embedded in an editor with a preview of the sketch auto-playing by default.
+Add p5.js scripts to your page and they will be embedded in an editor with an instanced preview of the sketch auto-playing by default.
 
 ```html
 <script type="text/p5" name="Sketch">
@@ -43,8 +43,3 @@ Other property options include:
 `base="#"` - will load the code from the script into the draw function of the specified base sketch
 `editor-btn` - add the show/hide editor button
 `no-editor` - hides the editor
-
-## Example Use
-
-View the source of this page: https://molleindustria.github.io/p5.play/v3_ref/sprite.html
-https://github.com/molleindustria/p5.play/blob/gh-pages/v3_ref/sprite.html

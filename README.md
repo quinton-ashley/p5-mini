@@ -1,6 +1,6 @@
 # p5-mini
 
-Embed p5.js sketches on your own website!
+Embed editable p5.js sketches on your own website!
 
 Example use: https://p5play.org/learn/sprite.html
 

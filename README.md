@@ -2,6 +2,8 @@
 
 Embed p5.js sketches on your own website!
 
+Example use: https://p5play.org/learn/sprite.html
+
 ## Usage
 
 Add p5-mini and the Ace online editor to your HTML:

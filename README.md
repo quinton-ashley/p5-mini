@@ -10,10 +10,10 @@ Add p5-mini and the Ace online editor to your HTML:
 
 ```html
 <!-- put these in the head tag of your html file -->
-<link rel="stylesheet" href="https://github.io/quinton-ashley/p5-mini/p5-mini.css" />
+<link rel="stylesheet" href="https://quinton-ashley.github.io/p5-mini/p5-mini.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.8.1/ace.min.js"></script>
 <!-- put this script at the bottom of the body tag -->
-<script src="https://github.io/quinton-ashley/p5-mini/p5-mini.js"></script>
+<script src="https://quinton-ashley.github.io/p5-mini/p5-mini.js"></script>
 ```
 
 Add p5.js scripts to your page and they will be embedded in an editor with an instanced preview of the sketch auto-playing by default.

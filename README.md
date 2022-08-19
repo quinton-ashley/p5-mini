@@ -9,10 +9,7 @@ Example use: https://p5play.org/learn/sprite.html
 Add p5-mini and the Ace online editor to your HTML:
 
 ```html
-<!-- put these in the head tag of your html file -->
-<link rel="stylesheet" href="https://quinton-ashley.github.io/p5-mini/p5-mini.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.8.1/ace.min.js"></script>
-<!-- put this script at the bottom of the body tag -->
 <script src="https://quinton-ashley.github.io/p5-mini/p5-mini.js"></script>
 ```
 
@@ -21,9 +18,15 @@ Add p5.js scripts to your page and they will be embedded in an editor with an in
 ```html
 <script type="text/p5" name="Sketch">
 	function setup() {
-		createCanvas(100, 100);
+	  createCanvas(100, 100);
 	}
 </script>
+```
+
+p5-mini is also available as a npm package:
+
+```bash
+npm i p5-mini
 ```
 
 ## Options
@@ -41,3 +44,21 @@ Other property options include:
 `base="#"` - will load the code in its editor into the draw function of the specified base sketch  
 `editor-btn` - add the show/hide editor button  
 `hide-editor` - hides the editor, just shows the preview
+
+## Advanced Usage
+
+If you don't want all the sketches on a page to be automatically loaded when the p5-mini.js script executes you can disable auto-loading. Simply run this before the p5-mini.js script executes:
+
+```js
+window.p5m = {
+	autoLoad: false
+};
+```
+
+You can then load just the p5.js scripts inside an element by using the p5m.loadMinis function.
+
+```js
+p5m.loadMinis(elem);
+```
+
+You can also define the p5m.ready function, which is run when p5-mini is ready to load sketches.

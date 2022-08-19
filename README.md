@@ -32,14 +32,12 @@ You can add properties to the script tag to adjust the p5-mini player to your li
 
 ```html
 <script type="text/p5" name="Sketch" lines="10">
-	...
-</script>
 ```
 
 Other property options include:  
-`horiz`/`vert` - whether the editor should be horizontal or vertical  
+`horiz`/`vert` - horizontal or vertical layout (vert is the default)
 `lines="#"` - sets the height of the editor to the specified number of lines  
 `base-#` - specifies the sketch as a base sketch  
-`base="#"` - will load the code from the script into the draw function of the specified base sketch  
+`base="#"` - will load the code in its editor into the draw function of the specified base sketch  
 `editor-btn` - add the show/hide editor button  
-`no-editor` - hides the editor
+`hide-editor` - hides the editor, just shows the preview

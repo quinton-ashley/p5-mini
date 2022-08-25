@@ -44,6 +44,7 @@ Other property options include:
 `base="#"` - will load the code in its editor into the draw function of the specified base sketch  
 `editor-btn` - add the show/hide editor button  
 `hide-editor` - hides the editor, just shows the preview
+`hide` - hides the whole mini player, useful for invisible base sketches
 
 ## Advanced Usage
 
